@@ -1,0 +1,42 @@
+@model List<Estudiante>
+
+@{
+    ViewData["Title"] = "Lista de Matrículas";
+}
+
+<h2>Lista de Estudiantes Matriculados</h2>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["Mensaje"]</div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nueva Matrícula</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre Completo</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Curso</th>
+            <th>Matrícula</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var estudiante in Model)
+        {
+            <tr>
+                <td>@estudiante.Id</td>
+                <td>@estudiante.Nombres @estudiante.Apellidos</td>
+                <td>@estudiante.Email</td>
+                <td>@estudiante.Telefono</td>
+                <td>@estudiante.Curso</td>
+                <td>@estudiante.NumeroMatricula</td>
+            </tr>
+        }
+    </tbody>
+</table>
