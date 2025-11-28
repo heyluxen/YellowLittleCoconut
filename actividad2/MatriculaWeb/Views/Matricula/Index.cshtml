@@ -1,20 +1,23 @@
-@model List<Estudiante>
+@model List<Estudiante>  //!-- Modelo: Lista de objetos Estudiante -->
 
 @{
-    ViewData["Title"] = "Lista de Matrículas";
+    ViewData["Title"] = "Lista de Matrículas";  <!-- Título de la página -->
 }
 
 <h2>Lista de Estudiantes Matriculados</h2>
 
+<!-- Muestra mensaje temporal de éxito -->
 @if (TempData["Mensaje"] != null)
 {
     <div class="alert alert-success">@TempData["Mensaje"]</div>
 }
 
+<!-- Botón para crear nueva matrícula -->
 <p>
     <a asp-action="Create" class="btn btn-primary">Nueva Matrícula</a>
 </p>
 
+<!-- Tabla para mostrar la lista de estudiantes -->
 <table class="table">
     <thead>
         <tr>
@@ -27,6 +30,7 @@
         </tr>
     </thead>
     <tbody>
+        <!-- Itera sobre cada estudiante en la lista -->
         @foreach (var estudiante in Model)
         {
             <tr>
